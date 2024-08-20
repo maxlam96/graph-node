@@ -1,0 +1,21 @@
+[general]
+
+[store]
+[store.primary]
+connection = "postgresql://graph-node:let-me-in@postgres:5432/graph-node"
+weight = 1
+pool_size = 50
+
+[deployment]
+[[deployment.rule]]
+shard = "primary"
+indexers = ["default"]
+
+[chains]
+ingestor = "block_ingestor_node"
+
+[chains.teknix]
+provider = [
+    { label = "teknix", url = "https://rpc-eth-2.teknix.dev", features = [] }
+]
+shard = "primary"

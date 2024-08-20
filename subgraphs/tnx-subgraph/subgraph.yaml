@@ -1,0 +1,132 @@
+specVersion: 0.0.4
+description: Subgraph to index TN Subgraph
+repository: https://github.com/blockscout/blokcscout-rs
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: EnsRegistry
+    network: teknix
+    source:
+      abi: EnsRegistry
+      address: "0xeAC74C814B38B18b4Ef5789D952307401d48c9A8"
+      startBlock: 135036
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/EnsRegistry.ts
+      entities:
+        - Domain
+        - Account
+        - Resolver
+      abis:
+        - name: EnsRegistry
+          file: ./abis/EnsRegistry.json
+      eventHandlers:
+        - event: Transfer(indexed bytes32,address)
+          handler: handleTransfer
+        - event: NewOwner(indexed bytes32,indexed bytes32,address)
+          handler: handleNewOwner
+        - event: NewResolver(indexed bytes32,address)
+          handler: handleNewResolver
+        - event: NewTTL(indexed bytes32,uint64)
+          handler: handleNewTTL
+  - kind: ethereum/contract
+    name: Resolver
+    network: teknix
+    source:
+      abi: Resolver
+      startBlock: 135081
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/Resolver.ts
+      entities:
+        - AddrChanged
+        - MulticoinAddrChanged
+        - NameChanged
+        - AbiChanged
+        - PubkeyChanged
+        - Textchanged
+        - ContenthashChanged
+        - InterfaceChanged
+        - AuthorisationChanged
+      abis:
+        - name: Resolver
+          file: ./abis/Resolver.json
+      eventHandlers:
+        - event: ABIChanged(indexed bytes32,indexed uint256)
+          handler: handleABIChanged
+        - event: AddrChanged(indexed bytes32,address)
+          handler: handleAddrChanged
+        - event: AddressChanged(indexed bytes32,uint256,bytes)
+          handler: handleMulticoinAddrChanged
+        - event: AuthorisationChanged(indexed bytes32,indexed address,indexed
+            address,bool)
+          handler: handleAuthorisationChanged
+        - event: ContenthashChanged(indexed bytes32,bytes)
+          handler: handleContentHashChanged
+        - event: InterfaceChanged(indexed bytes32,indexed bytes4,address)
+          handler: handleInterfaceChanged
+        - event: NameChanged(indexed bytes32,string)
+          handler: handleNameChanged
+        - event: PubkeyChanged(indexed bytes32,bytes32,bytes32)
+          handler: handlePubkeyChanged
+        - event: TextChanged(indexed bytes32,indexed string,string)
+          handler: handleTextChanged
+        - event: TextChanged(indexed bytes32,indexed string,string,string)
+          handler: handleTextChangedWithValue
+        - event: VersionChanged(indexed bytes32,uint64)
+          handler: handleVersionChanged
+  - kind: ethereum/contract
+    name: BaseRegistrar
+    network: teknix
+    source:
+      abi: BaseRegistrar
+      address: "0x67153EEF1a8a3494042b4cd3EEf8E1813EDd2003"
+      startBlock: 135038
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/BaseRegistrar.ts
+      entities:
+        - Registration
+        - NameRegistered
+        - NameRenewed
+        - NameTransferred
+      abis:
+        - name: BaseRegistrar
+          file: ./abis/BaseRegistrar.json
+      eventHandlers:
+        - event: NameRegistered(indexed uint256,indexed address,uint256)
+          handler: handleNameRegistered
+        - event: NameRenewed(indexed uint256,uint256)
+          handler: handleNameRenewed
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleNameTransferred
+  - kind: ethereum/contract
+    name: EthRegistrarController
+    network: teknix
+    source:
+      abi: EthRegistrarController
+      address: "0x45cD10E6b48839bB2856A0f83FC8472edE1E4023"
+      startBlock: 135074
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/EthRegistrarController.ts
+      entities:
+        - Registration
+      abis:
+        - name: EthRegistrarController
+          file: ./abis/EthRegistrarController.json
+      eventHandlers:
+        - event: NameRegistered(string,indexed bytes32,indexed
+            address,uint256,uint256,uint256)
+          handler: handleNameRegisteredByController
+        - event: NameRenewed(string,indexed bytes32,uint256,uint256)
+          handler: handleNameRenewedByController
