@@ -11,7 +11,7 @@ import {
   AddressChanged as AddressChangedEvent,
   ABIChanged as ABIChangedEvent,
   VersionChanged as VersionChangedEvent
-} from "../generated/Resolver/Resolver"
+} from "../generated/EvmResolver/EvmResolver"
 
 import {
   AuthorisationChanged,
@@ -164,7 +164,6 @@ export function handleTextChangedWithValue(event: TextChangedWithValueEvent): vo
   resolverEvent.key = event.params.key;
   resolverEvent.save();
 }
-
 
 export function handleContentHashChanged(event: ContenthashChangedEvent): void {
   let resolver = getOrCreateResolver(event.params.node, event.address);

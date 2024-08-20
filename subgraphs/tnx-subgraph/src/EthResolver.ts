@@ -11,7 +11,7 @@ import {
   AddressChanged as AddressChangedEvent,
   ABIChanged as ABIChangedEvent,
   VersionChanged as VersionChangedEvent
-} from "../generated/{{ cookiecutter.resolver_name }}/{{ cookiecutter.resolver_name }}"
+} from "../generated/EthResolver/EthResolver"
 
 import {
   AuthorisationChanged,

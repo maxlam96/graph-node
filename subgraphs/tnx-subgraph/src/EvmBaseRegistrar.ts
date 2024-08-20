@@ -16,7 +16,7 @@ import {
   NameRegistered as NameRegisteredEvent,
   NameRenewed as NameRenewedEvent,
   Transfer as TransferEvent,
-} from "../generated/BaseRegistrar/BaseRegistrar";
+} from "../generated/EvmBaseRegistrar/EvmBaseRegistrar";
 
 // Import entity types generated from the GraphQL schema
 import {
