@@ -28,7 +28,7 @@ import {
   Domain,
   MulticoinAddrChanged
 } from "../generated/schema"
-import { createEventID, maybeSaveDomainName } from "./utils";
+import { createEventID, maybeSaveDomainName } from "./ethutils";
 
 export function handleAddrChanged(event: AddrChangedEvent): void {
   let account = new Account(event.params.a.toHexString());

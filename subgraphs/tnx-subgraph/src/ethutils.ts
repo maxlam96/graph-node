@@ -1,8 +1,8 @@
 import { BigInt, ByteArray, Bytes, crypto, ethereum, log } from "@graphprotocol/graph-ts";
 import { Account, Domain } from "../generated/schema";
 
-export const BASE_NODE_HASH = "93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae"
-export const BASE_NODE =
+export const ETH_NODE_HASH = "93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae"
+export const ETH_NODE =
   ".eth";
 
 export const ROOT_NODE =
@@ -104,8 +104,8 @@ export function maybeSaveDomainName(name: string): void {
 }
 
 export function hashByName(name: string): ByteArray {
-  if (name === BASE_NODE.slice(1)) {
-    return byteArrayFromHex(BASE_NODE_HASH)
+  if (name === ETH_NODE.slice(1)) {
+    return byteArrayFromHex(ETH_NODE_HASH)
   } else if (!name) {
     return byteArrayFromHex(ROOT_NODE.slice(2))
   } else {

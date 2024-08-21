@@ -6,9 +6,9 @@ import {
   checkValidLabel,
   concat,
   createEventID,
-  SECOND_BASE_NODE,
+  BASE_NODE,
   uint256ToByteArray,
-  SECOND_BASE_NODE_HASH,
+  BASE_NODE_HASH,
 } from "./utils";
 
 // Import event types from the registry contract ABI
@@ -30,7 +30,7 @@ import {
 
 const GRACE_PERIOD_SECONDS = BigInt.fromI32(7776000); // 90 days
 
-var rootNode: ByteArray = byteArrayFromHex(SECOND_BASE_NODE_HASH);
+var rootNode: ByteArray = byteArrayFromHex(BASE_NODE_HASH);
 
 export function handleNameRegistered(event: NameRegisteredEvent): void {
   let account = new Account(event.params.owner.toHex());
@@ -51,7 +51,7 @@ export function handleNameRegistered(event: NameRegisteredEvent): void {
   let labelName = ens.nameByHash(label.toHexString());
   if (labelName != null) {
     domain.labelName = labelName;
-    domain.name = labelName! + SECOND_BASE_NODE;
+    domain.name = labelName! + BASE_NODE;
     registration.labelName = labelName;
   }
   domain.save();

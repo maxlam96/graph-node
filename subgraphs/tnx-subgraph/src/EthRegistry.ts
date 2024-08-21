@@ -7,7 +7,7 @@ import {
   NewTTL as NewTTLEvent
 } from "../generated/EthRegistry/EthRegistry"
 import { NewOwner, Transfer, NewResolver, NewTTL, Domain, Account, Resolver } from "../generated/schema"
-import { EMPTY_ADDRESS, EMPTY_ADDRESS_BYTEARRAY, ROOT_NODE, concat, createEventID } from "./utils";
+import { EMPTY_ADDRESS, EMPTY_ADDRESS_BYTEARRAY, ROOT_NODE, concat, createEventID } from "./ethutils";
 
 
 

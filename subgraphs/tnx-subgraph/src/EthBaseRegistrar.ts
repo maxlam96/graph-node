@@ -1,15 +1,15 @@
 // Import types and APIs from graph-ts
-import { BigInt, ByteArray, crypto, ens } from "@graphprotocol/graph-ts";
+import { BigInt, ByteArray, crypto, ens, log } from "@graphprotocol/graph-ts";
 
 import {
   byteArrayFromHex,
   checkValidLabel,
   concat,
   createEventID,
-  SECOND_BASE_NODE,
+  ETH_NODE,
   uint256ToByteArray,
-  SECOND_BASE_NODE_HASH,
-} from "./utils";
+  ETH_NODE_HASH,
+} from "./ethutils";
 
 // Import event types from the registry contract ABI
 import {
@@ -30,7 +30,7 @@ import {
 
 const GRACE_PERIOD_SECONDS = BigInt.fromI32(7776000); // 90 days
 
-var rootNode: ByteArray = byteArrayFromHex(SECOND_BASE_NODE_HASH);
+var rootNode: ByteArray = byteArrayFromHex(ETH_NODE_HASH);
 
 export function handleNameRegistered(event: NameRegisteredEvent): void {
   let account = new Account(event.params.owner.toHex());
@@ -51,7 +51,7 @@ export function handleNameRegistered(event: NameRegisteredEvent): void {
   let labelName = ens.nameByHash(label.toHexString());
   if (labelName != null) {
     domain.labelName = labelName;
-    domain.name = labelName! + SECOND_BASE_NODE;
+    domain.name = labelName! + ETH_NODE;
     registration.labelName = labelName;
   }
   domain.save();
@@ -92,10 +92,22 @@ export function handleNameTransferred(event: TransferEvent): void {
 
   let label = uint256ToByteArray(event.params.tokenId);
   let registration = Registration.load(label.toHex());
-  if (registration == null) return;
 
-  let domain = Domain.load(crypto.keccak256(concat(rootNode, label)).toHex())!;
+  // Kiểm tra nếu registration không tồn tại
+  if (registration == null) {
+    log.error("Registration not found for label: {}", [label.toHex()]);
+    return;
+  }
 
+  let domain = Domain.load(crypto.keccak256(concat(rootNode, label)).toHex());
+
+  // Kiểm tra nếu domain không tồn tại
+  if (domain == null) {
+    log.error("Domain not found for label: {}", [label.toHex()]);
+    return;
+  }
+
+  // Cập nhật người đăng ký
   registration.registrant = account.id;
   domain.registrant = account.id;
 

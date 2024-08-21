@@ -4,9 +4,6 @@ import { Account, Domain } from "../generated/schema";
 export const BASE_NODE_HASH = "ab0a63786a024f06ae4dfb7fd446aeb66b14802f38f4fdc0c6002478d63836a2"
 export const BASE_NODE =
   ".evmtn";
-export const SECOND_BASE_NODE_HASH = "93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae"
-export const SECOND_BASE_NODE =
-  ".eth";
 
 export const ROOT_NODE =
   "0x0000000000000000000000000000000000000000000000000000000000000000";
@@ -108,11 +105,9 @@ export function maybeSaveDomainName(name: string): void {
 
 export function hashByName(name: string): ByteArray {
   if (name === BASE_NODE.slice(1)) {
-    return byteArrayFromHex(BASE_NODE_HASH);
-  } else if (name === SECOND_BASE_NODE.slice(1)) {
-    return byteArrayFromHex(SECOND_BASE_NODE_HASH);
+    return byteArrayFromHex(BASE_NODE_HASH)
   } else if (!name) {
-    return byteArrayFromHex(ROOT_NODE.slice(2));
+    return byteArrayFromHex(ROOT_NODE.slice(2))
   } else {
     const partition = splitStringOnce(name, '.');
     const label = partition[0];
@@ -123,10 +118,9 @@ export function hashByName(name: string): ByteArray {
         hashByName(remainder),
         keccakFromStr(label)
       )
-    );
+    )
   }
-}
-
+  }
 
   function splitStringOnce(input: string, separator: string): string[] {
     const splitArray = input.split(separator, 2);
