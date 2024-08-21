@@ -10,7 +10,7 @@ dataSources:
     source:
       abi: EvmRegistry
       address: "0xeAC74C814B38B18b4Ef5789D952307401d48c9A8"
-      startBlock: 141543
+      startBlock: 143350
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -37,7 +37,7 @@ dataSources:
     network: teknix
     source:
       abi: EvmResolver
-      startBlock: 141543
+      startBlock: 143350
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -86,7 +86,7 @@ dataSources:
     source:
       abi: EvmBaseRegistrar
       address: "0x67153EEF1a8a3494042b4cd3EEf8E1813EDd2003"
-      startBlock: 141543
+      startBlock: 143350
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -113,7 +113,7 @@ dataSources:
     source:
       abi: EvmRegistrarController
       address: "0x45cD10E6b48839bB2856A0f83FC8472edE1E4023"
-      startBlock: 141543
+      startBlock: 143350
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -136,7 +136,7 @@ dataSources:
     source:
       abi: EthRegistry
       address: "0xF7A1EBF23de5CB6CbcebC5AFF05C857837b94d13"
-      startBlock: 141543
+      startBlock: 143350
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -163,7 +163,7 @@ dataSources:
     network: teknix
     source:
       abi: EthResolver
-      startBlock: 141543
+      startBlock: 143350
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -212,7 +212,7 @@ dataSources:
     source:
       abi: EthBaseRegistrar
       address: "0xd040b19764c71E7F39c6f30e399466009860Ff08"
-      startBlock: 141543
+      startBlock: 143350
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -239,7 +239,7 @@ dataSources:
     source:
       abi: EthRegistrarController
       address: "0x56E710c04a3BDc68676D3157AB5BFCEc78a7597a"
-      startBlock: 141543
+      startBlock: 143350
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6

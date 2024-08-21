@@ -33,6 +33,8 @@ const GRACE_PERIOD_SECONDS = BigInt.fromI32(7776000); // 90 days
 var rootNode: ByteArray = byteArrayFromHex(BASE_NODE_HASH);
 
 export function handleNameRegistered(event: NameRegisteredEvent): void {
+  console.log('----------------------------------------------------------------');
+  
   let account = new Account(event.params.owner.toHex());
   account.save();
 
@@ -87,6 +89,8 @@ export function handleNameRenewed(event: NameRenewedEvent): void {
 }
 
 export function handleNameTransferred(event: TransferEvent): void {
+  console.log('----------------------------------------------------------------');
+  
   let account = new Account(event.params.to.toHex());
   account.save();
 

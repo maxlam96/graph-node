@@ -2,51 +2,51 @@
   "teknix": {
     "EvmRegistry": {
       "address": "0xeAC74C814B38B18b4Ef5789D952307401d48c9A8",
-      "startBlock": 141543
+      "startBlock": 143350
     },
     "EvmResolver": {
-      "startBlock": 141543
+      "startBlock": 143350
     },
     "EvmRegistrarController": {
       "address": "0x45cD10E6b48839bB2856A0f83FC8472edE1E4023",
-      "startBlock": 141543
+      "startBlock": 143350
     },
     "EvmBaseRegistrar": {
       "address": "0x67153EEF1a8a3494042b4cd3EEf8E1813EDd2003",
-      "startBlock": 141543
+      "startBlock": 143350
     },
     "EthRegistry": {
       "address": "0xF7A1EBF23de5CB6CbcebC5AFF05C857837b94d13",
-      "startBlock": 141543
+      "startBlock": 143350
     },
     "EthResolver": {
-      "startBlock": 141543
+      "startBlock": 143350
     },
     "EthRegistrarController": {
       "address": "0x56E710c04a3BDc68676D3157AB5BFCEc78a7597a",
-      "startBlock": 141543
+      "startBlock": 143350
     },
     "EthBaseRegistrar": {
       "address": "0xd040b19764c71E7F39c6f30e399466009860Ff08",
-      "startBlock": 141543
+      "startBlock": 143350
     },
     "": ""
   },
   "goerli": {
     "EvmRegistry": {
       "address": "0xe509b8f9B242266Ee3A5aB33Aa418E2914A583F8",
-      "startBlock": 141543
+      "startBlock": 143350
     },
     "EvmResolver": {
-      "startBlock": 141543
+      "startBlock": 143350
     },
     "EvmRegistrarController": {
       "address": "0x158337f37349989e13d61fD498a7DFFE12A6e295",
-      "startBlock": 141543
+      "startBlock": 143350
     },
     "EvmBaseRegistrar": {
       "address": "0x7D3873122C34A769E01c0e6304332Ad17069cd05",
-      "startBlock": 141543
+      "startBlock": 143350
     },
     "": ""
   }

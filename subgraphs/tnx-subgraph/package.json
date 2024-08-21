@@ -4,10 +4,10 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ tn-subgraph",
-    "create-local": "graph create --node http://localhost:8020/ tn-subgraph",
-    "remove-local": "graph remove --node http://localhost:8020/ tn-subgraph",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 tn-subgraph",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ graphprotocol/ens",
+    "create-local": "graph create --node http://localhost:8020/ graphprotocol/ens",
+    "remove-local": "graph remove --node http://localhost:8020/ graphprotocol/ens",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 graphprotocol/ens",
     "test": "graph test"
   },
   "devDependencies": {
